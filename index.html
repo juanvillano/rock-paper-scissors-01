@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let humanScore = 0;
+        let computerScore = 0;
+        
+        // get computer choice
+        function getComputerChoice() {
+            // return a random value between rock, paper or scissors
+            const options = ['rock', 'paper', 'scissors'];
+            return options[Math.floor(Math.random() * 3)];
+        }
+
+        // get human choice
+        function getHumanChoice() {
+            // prompt the user for one choice
+            // return one of the valid choices
+            let userChoice = prompt('Select one option: rock, paper scissors.');
+            return userChoice;
+        }
+
+        console.log('Human chose: ', getHumanChoice());
+        console.log('Computer chose: ',getComputerChoice());
+        
+    </script>
+</body>
+</html>
