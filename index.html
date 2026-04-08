@@ -34,24 +34,30 @@
             if(humanChoice === 'rock') {
                 if (computerChoice === 'scissors') {
                     console.log('You win! rock beats scissors');
+                    humanScore += 1;
                 } else if (computerChoice === 'paper') {
                     console.log('You lose! paper beats rock');
+                    computerScore += 1;
                 } else {
                     console.log('It is a draw.');
                 }
             } else if (humanChoice === 'paper') {
                 if(computerChoice === 'rock') {
                     console.log('You win! paper beats rock');
+                    humanScore += 1;
                 } else if (computerChoice === 'scissors') {
                     console.log('You lose! scissors beat paper');
+                    computerScore += 1;
                 } else {
                     console.log('It is a draw.');
                 }
             } else if(humanChoice === 'scissors') {
                 if(computerChoice === 'rock') {
-                    console.log('You lose! rock beats scissors')
+                    console.log('You lose! rock beats scissors');
+                    computerScore += 1;
                 } else if (computerChoice === 'paper') {
                     console.log('You win! scissors beat paper');
+                    humanScore += 1;
                 } else {
                     console.log('It is a draw.');
                 }
@@ -61,11 +67,14 @@
         }
 
         let humanSelection = getHumanChoice();
-        console.log('human selected: ',humanSelection);
+        //console.log('human selected: ',humanSelection);
         let computerSelection = getComputerChoice();
-        console.log('computer selected: ',computerSelection);
+        //console.log('computer selected: ',computerSelection);
 
         playRound(humanSelection, computerSelection);
+
+        console.log('Human Score: ', humanScore);
+        console.log('Computer Score: ', computerScore);
         
     </script>
 </body>
