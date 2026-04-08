@@ -13,8 +13,9 @@
         // get computer choice
         function getComputerChoice() {
             // return a random value between rock, paper or scissors
+            let randomSelect = Math.floor(Math.random() * 3);
             const options = ['rock', 'paper', 'scissors'];
-            return options[Math.floor(Math.random() * 3)];
+            return options[randomSelect];
         }
 
         // get human choice
@@ -27,11 +28,44 @@
 
         // function that takes two arguments
         function playRound(humanChoice, computerChoice) {
-
+            // rock beats scissors
+            // scissors beat paper
+            // paper beats rock
+            if(humanChoice === 'rock') {
+                if (computerChoice === 'scissors') {
+                    console.log('You win! rock beats scissors');
+                } else if (computerChoice === 'paper') {
+                    console.log('You lose! paper beats rock');
+                } else {
+                    console.log('It is a draw.');
+                }
+            } else if (humanChoice === 'paper') {
+                if(computerChoice === 'rock') {
+                    console.log('You win! paper beats rock');
+                } else if (computerChoice === 'scissors') {
+                    console.log('You lose! scissors beat paper');
+                } else {
+                    console.log('It is a draw.');
+                }
+            } else if(humanChoice === 'scissors') {
+                if(computerChoice === 'rock') {
+                    console.log('You lose! rock beats scissors')
+                } else if (computerChoice === 'paper') {
+                    console.log('You win! scissors beat paper');
+                } else {
+                    console.log('It is a draw.');
+                }
+            } else {
+                console.log('You lose!')
+            }
         }
 
-        console.log('Human chose: ', getHumanChoice());
-        console.log('Computer chose: ',getComputerChoice());
+        let humanSelection = getHumanChoice();
+        console.log('human selected: ',humanSelection);
+        let computerSelection = getComputerChoice();
+        console.log('computer selected: ',computerSelection);
+
+        playRound(humanSelection, computerSelection);
         
     </script>
 </body>
