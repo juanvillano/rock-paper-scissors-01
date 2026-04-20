@@ -4,6 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        body {
+            background-color: lightgray;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding-block-start: 10%;
+        }
+    </style>
+    <body>
+        <h1>Rock, Paper & Scissors</h1>
+        <div class="container">
+                        <button>
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0b25lLWljb24gbHVjaWRlLXN0b25lIj48cGF0aCBkPSJNMTEuMjY0IDIuMjA1QTQgNCAwIDAgMCA2LjQyIDQuMjExbC00IDhhNCA0IDAgMCAwIDEuMzU5IDUuMTE3bDYgNGE0IDQgMCAwIDAgNC40MzggMGw2LTRhNCA0IDAgMCAwIDEuNTc2LTQuNTkybC0yLTZhNCA0IDAgMCAwLTIuNTMtMi41M3oiLz48cGF0aCBkPSJNMTEuOTkgMjIgMTQgMTJsNy44MjIgMy4xODQiLz48cGF0aCBkPSJNMTQgMTIgOC40NyAyLjMwMiIvPjwvc3ZnPg==" alt="rock">
+                <span>Rock</span>
+            </button>
+                        <button>
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0aWNreS1ub3RlLWljb24gbHVjaWRlLXN0aWNreS1ub3RlIj48cGF0aCBkPSJNMjEgOWEyLjQgMi40IDAgMCAwLS43MDYtMS43MDZsLTMuNTg4LTMuNTg4QTIuNCAyLjQgMCAwIDAgMTUgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yeiIvPjxwYXRoIGQ9Ik0xNSAzdjVhMSAxIDAgMCAwIDEgMWg1Ii8+PC9zdmc+" alt="paper">
+                <span>Paper</span>
+            </button>
+            <button>
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNjaXNzb3JzLWljb24gbHVjaWRlLXNjaXNzb3JzIj48Y2lyY2xlIGN4PSI2IiBjeT0iNiIgcj0iMyIvPjxwYXRoIGQ9Ik04LjEyIDguMTIgMTIgMTIiLz48cGF0aCBkPSJNMjAgNCA4LjEyIDE1Ljg4Ii8+PGNpcmNsZSBjeD0iNiIgY3k9IjE4IiByPSIzIi8+PHBhdGggZD0iTTE0LjggMTQuOCAyMCAyMCIvPjwvc3ZnPg==" alt="scissors">
+                <span>Scissors</span>
+            </button>
+        </div>
+    </body>
 </head>
 <body>
     <script>
@@ -11,7 +38,7 @@
         // get computer choice
         function getComputerChoice() {
             // return a random value between rock, paper or scissors
-            let randomSelect = Math.floor(Math.random() * 3);
+           // let randomSelect = Math.floor(Math.random() * 3);
             const options = ['rock', 'paper', 'scissors'];
             return options[randomSelect];
         }
@@ -20,7 +47,7 @@
         function getHumanChoice() {
             // prompt the user for one choice
             // return one of the valid choices
-            let userChoice = prompt('Select one option: rock, paper scissors.');
+           // let userChoice = prompt('Select one option: rock, paper scissors.');
             return userChoice.toLowerCase();
         }
 
@@ -84,7 +111,7 @@
             
         }
 
-        playGame(parseInt(prompt('how many rounds? ')));
+        // playGame(parseInt(prompt('how many rounds? ')));
         
         
     </script>
