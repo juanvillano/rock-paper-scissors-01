@@ -6,113 +6,187 @@
     <title>Document</title>
     <style>
         body {
-            background-color: lightgray;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding-block-start: 10%;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-direction: row;
+            margin-bottom: 32px;
+        }
+
+        button {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border: 1px solid lightblue;
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+
+        .content {
+            background-color: #fafafa;
+            border-radius: 8px;
+            min-width: 300px;
+            text-align: center;
+            margin: 0 0 16px 0;
+        }
+
+        .content ul {
+            list-style-type: none;
+            display: flex;
+            gap: 16px;
+            padding: 8px 16px;
+            text-align: center;
+            vertical-align: baseline;
         }
     </style>
     <body>
         <h1>Rock, Paper & Scissors</h1>
+        <div class="content">
+            <p></p>
+            <ul>
+                <li><strong>Human Score:</strong> <span id="human-score">0</span></li>
+                <li><strong>Computer Score:</strong> <span id="computer-score">0</span></li>
+            </ul>
+        </div>
         <div class="container">
-                        <button>
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0b25lLWljb24gbHVjaWRlLXN0b25lIj48cGF0aCBkPSJNMTEuMjY0IDIuMjA1QTQgNCAwIDAgMCA2LjQyIDQuMjExbC00IDhhNCA0IDAgMCAwIDEuMzU5IDUuMTE3bDYgNGE0IDQgMCAwIDAgNC40MzggMGw2LTRhNCA0IDAgMCAwIDEuNTc2LTQuNTkybC0yLTZhNCA0IDAgMCAwLTIuNTMtMi41M3oiLz48cGF0aCBkPSJNMTEuOTkgMjIgMTQgMTJsNy44MjIgMy4xODQiLz48cGF0aCBkPSJNMTQgMTIgOC40NyAyLjMwMiIvPjwvc3ZnPg==" alt="rock">
+            <button id="rock">
+                <!-- <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0b25lLWljb24gbHVjaWRlLXN0b25lIj48cGF0aCBkPSJNMTEuMjY0IDIuMjA1QTQgNCAwIDAgMCA2LjQyIDQuMjExbC00IDhhNCA0IDAgMCAwIDEuMzU5IDUuMTE3bDYgNGE0IDQgMCAwIDAgNC40MzggMGw2LTRhNCA0IDAgMCAwIDEuNTc2LTQuNTkybC0yLTZhNCA0IDAgMCAwLTIuNTMtMi41M3oiLz48cGF0aCBkPSJNMTEuOTkgMjIgMTQgMTJsNy44MjIgMy4xODQiLz48cGF0aCBkPSJNMTQgMTIgOC40NyAyLjMwMiIvPjwvc3ZnPg==" alt="rock"> -->
+                 <img src="./assets/rock.gif" alt="rock" width="50" height="50">
                 <span>Rock</span>
             </button>
-                        <button>
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0aWNreS1ub3RlLWljb24gbHVjaWRlLXN0aWNreS1ub3RlIj48cGF0aCBkPSJNMjEgOWEyLjQgMi40IDAgMCAwLS43MDYtMS43MDZsLTMuNTg4LTMuNTg4QTIuNCAyLjQgMCAwIDAgMTUgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yeiIvPjxwYXRoIGQ9Ik0xNSAzdjVhMSAxIDAgMCAwIDEgMWg1Ii8+PC9zdmc+" alt="paper">
+            <button id="paper">
+                <!-- <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXN0aWNreS1ub3RlLWljb24gbHVjaWRlLXN0aWNreS1ub3RlIj48cGF0aCBkPSJNMjEgOWEyLjQgMi40IDAgMCAwLS43MDYtMS43MDZsLTMuNTg4LTMuNTg4QTIuNCAyLjQgMCAwIDAgMTUgM0g1YTIgMiAwIDAgMC0yIDJ2MTRhMiAyIDAgMCAwIDIgMmgxNGEyIDIgMCAwIDAgMi0yeiIvPjxwYXRoIGQ9Ik0xNSAzdjVhMSAxIDAgMCAwIDEgMWg1Ii8+PC9zdmc+" alt="paper"> -->
+                <img src="./assets/paper.gif" alt="paper" width="50" height="50">
                 <span>Paper</span>
             </button>
-            <button>
-                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNjaXNzb3JzLWljb24gbHVjaWRlLXNjaXNzb3JzIj48Y2lyY2xlIGN4PSI2IiBjeT0iNiIgcj0iMyIvPjxwYXRoIGQ9Ik04LjEyIDguMTIgMTIgMTIiLz48cGF0aCBkPSJNMjAgNCA4LjEyIDE1Ljg4Ii8+PGNpcmNsZSBjeD0iNiIgY3k9IjE4IiByPSIzIi8+PHBhdGggZD0iTTE0LjggMTQuOCAyMCAyMCIvPjwvc3ZnPg==" alt="scissors">
+            <button id="scissors">
+                <!-- <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiIGNsYXNzPSJsdWNpZGUgbHVjaWRlLXNjaXNzb3JzLWljb24gbHVjaWRlLXNjaXNzb3JzIj48Y2lyY2xlIGN4PSI2IiBjeT0iNiIgcj0iMyIvPjxwYXRoIGQ9Ik04LjEyIDguMTIgMTIgMTIiLz48cGF0aCBkPSJNMjAgNCA4LjEyIDE1Ljg4Ii8+PGNpcmNsZSBjeD0iNiIgY3k9IjE4IiByPSIzIi8+PHBhdGggZD0iTTE0LjggMTQuOCAyMCAyMCIvPjwvc3ZnPg==" alt="scissors"> -->
+                <img src="./assets/scissors.gif" alt="scissors" width="50" height="50">
                 <span>Scissors</span>
             </button>
+        </div>
+        <div class="round-winner">
+            <span></span>
         </div>
     </body>
 </head>
 <body>
-    <script>
+    <script defer>
+
+        // variables
+        const list = document.querySelector('.content');
+        const humanSpan = document.querySelector('#human-score');
+        const computerSpan = document.querySelector('#computer-score');
+        const span = document.querySelector('.round-winner');
+        const winnerMessage = document.querySelector('.content > p');
+
+        let humanScore = 0;
+        let computerScore = 0;
+        let roundCount = 0;
         
         // get computer choice
         function getComputerChoice() {
-            // return a random value between rock, paper or scissors
-           // let randomSelect = Math.floor(Math.random() * 3);
+            let randomSelect = Math.floor(Math.random() * 3);
             const options = ['rock', 'paper', 'scissors'];
             return options[randomSelect];
         }
 
         // get human choice
-        function getHumanChoice() {
-            // prompt the user for one choice
-            // return one of the valid choices
-           // let userChoice = prompt('Select one option: rock, paper scissors.');
+        function getHumanChoice(userChoice) {
+           //let userChoice = prompt('Select one option: rock, paper scissors.');
             return userChoice.toLowerCase();
         }
 
-        function playGame(rounds) {
-
-            let roundCount = 0;
-            let humanScore = 0;
-            let computerScore = 0;
+        function playGame(humanChoice) {
 
             // function that takes human and computer choice to log winner and increment score
             function playRound(humanChoice, computerChoice) {
-                // rock beats scissors
-                // scissors beat paper
-                // paper beats rock
                 if(humanChoice === 'rock') {
                     if (computerChoice === 'scissors') {
-                        console.log('You win! rock beats scissors');
+                        span.textContent = 'You win! rock beats scissors';
                         humanScore += 1;
                     } else if (computerChoice === 'paper') {
-                        console.log('You lose! paper beats rock');
+                        span.textContent = 'You lose! paper beats rock';
                         computerScore += 1;
                     } else {
-                        console.log('It is a draw.');
+                        span.textContent = 'It is a draw.';
                     }
                 } else if (humanChoice === 'paper') {
                     if(computerChoice === 'rock') {
-                        console.log('You win! paper beats rock');
+                        span.textContent = 'You win! paper beats rock';
                         humanScore += 1;
                     } else if (computerChoice === 'scissors') {
-                        console.log('You lose! scissors beat paper');
+                        span.textContent = 'You lose! scissors beat paper';
                         computerScore += 1;
                     } else {
-                        console.log('It is a draw.');
+                        span.textContent = 'It is a draw.';
                     }
                 } else if(humanChoice === 'scissors') {
                     if(computerChoice === 'rock') {
-                        console.log('You lose! rock beats scissors');
+                        span.textContent = 'You lose! rock beats scissors';
                         computerScore += 1;
                     } else if (computerChoice === 'paper') {
-                        console.log('You win! scissors beat paper');
+                        span.textContent = 'You win! scissors beat paper';
                         humanScore += 1;
                     } else {
-                        console.log('It is a draw.');
+                        span.textContent = 'It is a draw.';
                     }
                 } else {
-                    console.log('You lose!')
+                    span.textContent = 'You lose!';
                 }
             }
 
         
-            while (roundCount < rounds) {
-                let humanSelection = getHumanChoice();
-                let computerSelection = getComputerChoice();
+            let humanSelection = getHumanChoice(humanChoice);
+            let computerSelection = getComputerChoice();
 
-                playRound(humanSelection, computerSelection);
-                console.log('Human Score: ', humanScore);
-                console.log('Computer Score: ', computerScore);
-                
-                roundCount++;
+            playRound(humanSelection, computerSelection);
+
+            humanSpan.textContent = humanScore;
+            computerSpan.textContent = computerScore;
+
+            if (humanScore === 5) {
+                winnerMessage.textContent = 'You win!';
+                span.textContent = '';
+                humanScore = 0;
+                computerScore = 0;
+                window.setTimeout(() => {
+                    humanSpan.textContent = '0';
+                    computerSpan.textContent = '0';
+                }, 1000);
+            } else if (computerScore === 5) {
+                winnerMessage.textContent = 'Computer wins!';
+                span.textContent = '';
+                humanScore = 0;
+                computerScore = 0;
+                window.setTimeout(() => {
+                    humanSpan.textContent = '0';
+                    computerSpan.textContent = '0';
+                }, 1000);
             }
             
         }
-
-        // playGame(parseInt(prompt('how many rounds? ')));
         
+        const buttons = document.querySelectorAll('button');
+
+        buttons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                e.preventDefault();
+                let selection = e.currentTarget.id;
+                //console.log('This is the ID: ', selection);
+                playGame(selection);
+            });
+        });
         
     </script>
 </body>
